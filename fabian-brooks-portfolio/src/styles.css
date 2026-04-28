@@ -373,8 +373,13 @@ em { font-style: italic; color: var(--accent); }
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
+.games__row--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1080px) {
+  .games__row--three { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 760px) {
-  .games__row { grid-template-columns: 1fr; }
+  .games__row,
+  .games__row--three { grid-template-columns: 1fr; }
 }
 
 .game {
