@@ -7,16 +7,27 @@ import { useEffect, useState } from 'react'
 const PROFILE = {
   name: 'Fabian Brooks',
   location: 'Federal Way, Washington',
-  // TODO: replace these placeholders with your real links before deploying
-  email: 'hello@example.com',
-  linkedin: 'https://www.linkedin.com/in/your-handle',
-  github: 'https://github.com/your-handle',
-  itchio: 'https://aieseattle.itch.io',
+  email: 'fabian.brooks.one@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/fabian-brooks/',
+  github: 'https://github.com/FabianB14',
+  itchio: 'https://aieseattle.itch.io/splashseek',
 }
 
 const GAMES = [
   {
     n: '01',
+    title: 'Vanguard of the Forgotten',
+    role: 'Founder · Designer · Engineer',
+    year: 'In development',
+    studio: 'Interverse Studios',
+    blurb:
+      'A mobile fighting game built on the Interverse SDK. Five champions, each from a martial tradition history overlooked, defending a heritage the world chose to forget. The first title shipping on Interverse — the launch of the ecosystem.',
+    stack: ['Unreal Engine 5', 'Mobile', 'Interverse SDK', 'Blueprints'],
+    link: null,
+    linkLabel: 'Coming soon',
+  },
+  {
+    n: '02',
     title: 'License to Grill',
     role: 'Technical Designer',
     year: '2025',
@@ -28,7 +39,7 @@ const GAMES = [
     linkLabel: 'Play on itch.io',
   },
   {
-    n: '02',
+    n: '03',
     title: 'Splash & Seek: Bear vs Fish',
     role: 'Technical Designer',
     year: '2024',
@@ -40,7 +51,7 @@ const GAMES = [
     linkLabel: 'Play on itch.io',
   },
   {
-    n: '03',
+    n: '04',
     title: 'Luminara',
     role: 'Founder · Lead Engineer',
     year: 'In development',
@@ -62,33 +73,53 @@ const INTERVERSE_STACK = [
 
 const INTERVERSE_PRODUCTS = [
   {
-    name: 'BabyResell',
-    status: 'In development',
-    desc: 'AI-powered resale marketplace for parents — smart pricing, recommendation engine, and a flow built around the way parents actually unload baby gear.',
+    name: 'Blockchain',
+    status: 'Complete',
+    desc: 'Core ledger powering ownership, marketplace settlement, and cross-game state for everything in the Interverse ecosystem.',
   },
   {
-    name: 'Interverse Gardens / Luminara',
-    status: 'In development',
-    desc: 'Flagship AR title and proof point for the Interverse SDK suite. Showcases the genetics, growth, and AR systems running on top of the platform.',
+    name: 'Wallet',
+    status: 'Complete',
+    desc: 'Player-facing wallet with abstraction layer so games can offer real ownership without ever forcing players to think about crypto.',
   },
   {
-    name: 'Auto Parts Marketplace',
-    status: 'Planned',
-    desc: 'Same engine as BabyResell, retargeted for the auto parts vertical. Reuses the pricing and recommendation infrastructure.',
+    name: 'Marketplace',
+    status: 'Complete',
+    desc: 'Listing, discovery, and settlement for cosmetics, items, and currency. Shared infrastructure every Interverse title plugs into.',
+  },
+  {
+    name: 'Unreal SDK',
+    status: 'In testing',
+    desc: 'C++ / UE5 plugin exposing wallet, ownership, marketplace, and progression as Blueprint-callable nodes. First SDK to ship.',
+  },
+  {
+    name: 'Unity SDK',
+    status: 'In development',
+    desc: 'C# / Unity package mirroring the Unreal SDK surface so Unity studios get the same Interverse features with the same patterns.',
+  },
+  {
+    name: 'RPG Maker SDK',
+    status: 'In development',
+    desc: 'Plugin bringing Interverse ownership and currency into RPG Maker projects — opening the ecosystem to a creator community most platforms ignore.',
+  },
+  {
+    name: 'Vanguard of the Forgotten',
+    status: 'In development',
+    desc: 'The first game integrating with Interverse — kicks off the ecosystem. Mobile fighter with on-chain champion ownership, fight-history records, and portable currency earned in-fight.',
+  },
+  {
+    name: 'Luminara',
+    status: 'In development',
+    desc: 'Flagship AR title and second proof point for the Interverse SDK suite. Showcases the genetics, growth, and AR systems running on top of the platform.',
   },
 ]
 
 const TIMELINE = [
   {
-    when: '2026 — present',
+    when: '2023 — present',
     what: 'Founder & Lead Engineer · Interverse LLC',
     note:
-      'Building a multi-language software platform: Python/FastAPI backend, Unreal C++ SDK, Unity C# SDK, React frontend.',
-  },
-  {
-    when: '2024 — 2028',
-    what: 'B.S. Computer Science · Seattle Pacific University',
-    note: 'Coursework in systems, algorithms, software engineering. On track for Spring 2028.',
+      'Building a multi-language software platform: blockchain, wallet, and marketplace shipped; Unreal SDK in testing, Unity and RPG Maker SDKs in development. Vanguard of the Forgotten is the first title integrating with the platform.',
   },
   {
     when: '2024 — 2025',
@@ -159,8 +190,9 @@ function Hero() {
           </h1>
           <p className="hero__sub reveal" style={{ '--d': '260ms' }}>
             Game developer, software engineer, and founder of <strong>Interverse LLC</strong>.
-            Fourteen-year Army veteran. Four years at Amazon Alexa Video. Currently studying
-            Computer Science at Seattle Pacific University.
+            Fourteen-year Army veteran. Four years at Amazon Alexa Video. Currently building
+            Interverse and shipping <strong>Vanguard of the Forgotten</strong> — the first
+            game launching on the Interverse SDK.
           </p>
           <div className="hero__cta reveal" style={{ '--d': '380ms' }}>
             <a className="btn btn--primary" href="#work">View work</a>
@@ -175,11 +207,11 @@ function Hero() {
           </div>
           <div className="hero__card-row">
             <span className="mono-label">Now</span>
-            <span>CS @ Seattle Pacific University</span>
+            <span>Interverse · Vanguard of the Forgotten</span>
           </div>
           <div className="hero__card-row">
             <span className="mono-label">Building</span>
-            <span>Interverse · BabyResell · Luminara</span>
+            <span>Interverse SDK · VotF · Luminara</span>
           </div>
           <div className="hero__card-row">
             <span className="mono-label">Stack</span>
@@ -192,7 +224,7 @@ function Hero() {
         <div className="hero__marquee-track">
           {Array(2).fill(null).map((_, i) => (
             <span key={i}>
-              FOUNDER · GAME DEVELOPER · SOFTWARE ENGINEER · VETERAN · EX-AMAZON · UE5 · UNITY · CS @ SPU · BUILDING INTERVERSE ·&nbsp;
+              FOUNDER · GAME DEVELOPER · SOFTWARE ENGINEER · VETERAN · EX-AMAZON · UE5 · UNITY · BUILDING INTERVERSE · VANGUARD OF THE FORGOTTEN ·&nbsp;
             </span>
           ))}
         </div>
@@ -250,9 +282,10 @@ function Work() {
     <Section id="work" eyebrow="Selected Work · 01" title="Games & shipped projects">
       <div className="games">
         <GameCard game={GAMES[0]} featured />
-        <div className="games__row">
+        <div className="games__row games__row--three">
           <GameCard game={GAMES[1]} />
           <GameCard game={GAMES[2]} />
+          <GameCard game={GAMES[3]} />
         </div>
       </div>
     </Section>
@@ -306,8 +339,8 @@ function Background() {
         <div className="bio">
           <p>
             I grew up in New Orleans. The military taught me to plan, lead, and finish what I start.
-            Amazon taught me to ship code at scale. AIE taught me to make games. SPU is teaching me
-            the theory underneath all of it.
+            Amazon taught me to ship code at scale. AIE taught me to make games. Interverse is where
+            all of that compounds.
           </p>
           <p>
             Everything I do now points at the same thing: build Interverse into a real company,
@@ -371,11 +404,11 @@ function Contact() {
           </a>
           <a href={PROFILE.github} target="_blank" rel="noreferrer" className="contact__link">
             <span className="mono-label">GitHub</span>
-            <span className="contact__link-value">@fabian-brooks ↗</span>
+            <span className="contact__link-value">@FabianB14 ↗</span>
           </a>
           <a href={PROFILE.itchio} target="_blank" rel="noreferrer" className="contact__link">
             <span className="mono-label">itch.io</span>
-            <span className="contact__link-value">AIE Seattle ↗</span>
+            <span className="contact__link-value">Splash &amp; Seek ↗</span>
           </a>
         </div>
       </div>
