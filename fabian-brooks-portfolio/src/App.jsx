@@ -64,6 +64,48 @@ const GAMES = [
   },
 ]
 
+const WEB_GAMES = [
+  {
+    n: 'W1',
+    title: "Nightfall: Hunters' Crusade",
+    role: 'Solo Build · Full-Stack',
+    year: 'Live · Play now',
+    studio: 'Three.js · Node · Socket.IO',
+    blurb:
+      'A realtime browser co-op vampire investigation game — first-person 3D, Phasmophobia-style. Hunt the bloodline, log evidence with the right tools, deduce the species, and perform its banishment ritual before fear or the moon hits 100%. Four contracts, five difficulties, shareable room codes, and a persistent leaderboard.',
+    stack: ['Three.js', 'Node / Express', 'Socket.IO', 'Co-op Multiplayer'],
+    link: 'https://blood-protocol.onrender.com/',
+    linkLabel: 'Play in browser',
+  },
+  {
+    n: 'W2',
+    title: 'Luminara — Web AR Build',
+    role: 'Solo Build · WebAR',
+    year: 'Live · Play now',
+    studio: 'WebAR · GPS · Mobile',
+    blurb:
+      'The browser AR companion build of Luminara — no app install. Walk real-world GPS points, discover glowing bioluminescent seeds, place them on a flat surface through your phone camera, then cultivate them through six growth stages with a Light / Essence / Harmony care system. Best experienced on a phone.',
+    stack: ['WebAR', 'GPS', 'Mobile', 'Three.js'],
+    link: 'https://luminari-web.onrender.com/',
+    linkLabel: 'Open on mobile',
+  },
+]
+
+const WEBSITES = [
+  {
+    n: 'S1',
+    title: 'Baby Resell',
+    role: 'Solo Build · Full-Stack',
+    year: 'Live',
+    studio: 'Marketplace Web App',
+    blurb:
+      'An OfferUp-style marketplace for buying and reselling baby gear — listings, offers, and discovery built for parents passing along the clothes, toys, and equipment their kids outgrew. A full buy-and-sell flow running live in the browser.',
+    stack: ['React', 'Marketplace', 'Web App'],
+    link: 'https://baby-resell-app.vercel.app/',
+    linkLabel: 'Visit site',
+  },
+]
+
 const INTERVERSE_STACK = [
   { label: 'Backend', value: 'Python · FastAPI' },
   { label: 'Game SDK (Unreal)', value: 'C++ · UE5' },
@@ -167,6 +209,8 @@ function Nav() {
       </a>
       <ul className="nav__links">
         <li><a href="#work">Work</a></li>
+        <li><a href="#play">Play</a></li>
+        <li><a href="#sites">Sites</a></li>
         <li><a href="#interverse">Interverse</a></li>
         <li><a href="#background">Background</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -195,7 +239,8 @@ function Hero() {
             game launching on the Interverse SDK.
           </p>
           <div className="hero__cta reveal" style={{ '--d': '380ms' }}>
-            <a className="btn btn--primary" href="#work">View work</a>
+            <a className="btn btn--primary" href="#play">Play a game →</a>
+            <a className="btn btn--ghost" href="#work">View work</a>
             <a className="btn btn--ghost" href="#contact">Get in touch →</a>
           </div>
         </div>
@@ -292,9 +337,41 @@ function Work() {
   )
 }
 
+function WebGames() {
+  return (
+    <Section id="play" eyebrow="Live & Playable · 02" title="Web games you can play right now">
+      <p className="section__lede">
+        No download, no launcher. These run straight in your browser — click a card and play.
+      </p>
+      <div className="games">
+        <div className="games__row">
+          {WEB_GAMES.map((g) => (
+            <GameCard key={g.title} game={g} />
+          ))}
+        </div>
+      </div>
+    </Section>
+  )
+}
+
+function Websites() {
+  return (
+    <Section id="sites" eyebrow="Live & Playable · 03" title="Websites & web apps">
+      <p className="section__lede">
+        Full-stack web builds shipped and running in production.
+      </p>
+      <div className="games">
+        {WEBSITES.map((s) => (
+          <GameCard key={s.title} game={s} featured={WEBSITES.length === 1} />
+        ))}
+      </div>
+    </Section>
+  )
+}
+
 function Interverse() {
   return (
-    <Section id="interverse" eyebrow="Selected Work · 02" title="Interverse LLC">
+    <Section id="interverse" eyebrow="Selected Work · 04" title="Interverse LLC">
       <div className="interverse">
         <div className="interverse__intro">
           <p className="interverse__lede">
@@ -334,7 +411,7 @@ function Interverse() {
 
 function Background() {
   return (
-    <Section id="background" eyebrow="About · 03" title="The path here">
+    <Section id="background" eyebrow="About · 05" title="The path here">
       <div className="bg-grid">
         <div className="bio">
           <p>
@@ -385,7 +462,7 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="contact__inner">
-        <span className="mono-label">Contact · 04</span>
+        <span className="mono-label">Contact · 06</span>
         <h2 className="contact__title">
           Have something to build? <em>Let&apos;s talk.</em>
         </h2>
@@ -431,6 +508,8 @@ export default function App() {
       <main>
         <Hero />
         <Work />
+        <WebGames />
+        <Websites />
         <Interverse />
         <Background />
         <Contact />
