@@ -26,7 +26,12 @@ const PROFILE = {
 }
 ```
 
-Other content lives in the `GAMES`, `INTERVERSE_PRODUCTS`, `TIMELINE`, and `SKILLS` arrays right below `PROFILE`. All editable as plain JavaScript objects.
+Other content lives in the `GAMES`, `WEB_GAMES`, `WEBSITES`, `INTERVERSE_PRODUCTS`, `TIMELINE`, and `SKILLS` arrays right below `PROFILE`. All editable as plain JavaScript objects.
+
+- **`WEB_GAMES`** — playable browser games, surfaced in the "Play" section (nav tab `#play`).
+- **`WEBSITES`** — live websites / web apps, surfaced in the "Sites" section (nav tab `#sites`).
+
+Each entry takes the same shape as a `GAMES` card (`title`, `role`, `year`, `studio`, `blurb`, `stack`, `link`, `linkLabel`). Set `link` to the live URL so the card becomes a direct, clickable launch link.
 
 ## Deploy to Vercel (free, ~3 minutes)
 
